@@ -55,11 +55,19 @@ function App() {
       const xAxis = d3.axisBottom(xScale);
       const yAxis = d3.axisLeft(yScale);
 
+      d3.select('#xaxxis').remove();
       d3.select(svgRef.current)
         .append('g')
         .attr('transform', `translate(0,${height - padding})`)
-        .attr('id', 'axxis')
+        .attr('id', 'xaxxis')
         .call(xAxis);
+
+      d3.select('#yaxxis').remove();
+      d3.select(svgRef.current)
+        .append('g')
+        .attr('transform', `translate(${padding},0)`)
+        .attr('id', 'yaxxis')
+        .call(yAxis);
     };
   }, [chartData]);
 
@@ -71,7 +79,7 @@ function App() {
         </svg>
         <p className='container'>
           <button type='button' onClick={() => setChartData(newData())}>
-            Chart Data -- {JSON.stringify(chartData)}
+            Change Chart Data
           </button>
         </p>
       </header>

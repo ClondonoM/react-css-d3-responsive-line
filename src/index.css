@@ -27,10 +27,14 @@ html {
   display: flex;
   align-items: stretch;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 button {
   font-size: 2rem;
   width: 50%;
   padding: 2rem;
+}
+button:hover {
+  cursor: pointer;
 }
