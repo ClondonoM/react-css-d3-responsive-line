@@ -57,7 +57,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <svg id='chart' viewBox='0 0 500 150'>
+        <svg id='chart' ref={svgRef} viewBox='0 0 500 150'>
           <path d='' fill='none' stroke='white' strokeWidth='5' />
         </svg>
         <p className='container'>
