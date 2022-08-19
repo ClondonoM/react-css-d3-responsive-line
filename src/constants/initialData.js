@@ -1,4 +1,4 @@
-export const initialData = [
+const initialData = [
   {
     name: 'Car',
     value: 10,
@@ -20,3 +20,5 @@ export const initialData = [
     value: 7,
   },
 ];
+
+export default initialData;

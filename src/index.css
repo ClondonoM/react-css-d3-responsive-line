@@ -3,3 +3,31 @@
 html {
   font-family: Montserrat, sans-serif;
 }
+
+/* body {
+  background-color: rgb(40, 40, 40);
+} */
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+  background-image: linear-gradient(black, red);
+}
+
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+button {
+  font-size: 2rem;
+  width: 50%;
+  padding: 2rem;
+}
