@@ -51,6 +51,15 @@ function App() {
         .attr('d', (value) => line(chartData))
         .attr('fill', 'none')
         .attr('stroke', 'white');
+
+      const xAxis = d3.axisBottom(xScale);
+      const yAxis = d3.axisLeft(yScale);
+
+      d3.select(svgRef.current)
+        .append('g')
+        .attr('transform', `translate(0,${height - padding})`)
+        .attr('id', 'axxis')
+        .call(xAxis);
     };
   }, [chartData]);
 
