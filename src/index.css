@@ -4,9 +4,12 @@ html {
   font-family: Montserrat, sans-serif;
 }
 
-/* body {
-  background-color: rgb(40, 40, 40);
-} */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0 auto;
+}
 
 .App-header {
   background-color: #282c34;

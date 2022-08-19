@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import initialData from './constants/initialData';
+import * as d3 from 'd3';
 
 function App() {
   const width = 500;
@@ -14,6 +15,44 @@ function App() {
       d.value = Math.floor(Math.random() * (maxValue + 1));
       return d;
     });
+
+  const svgRef = useRef();
+
+  useEffect(() => {
+    return () => {
+      const xScale = d3
+        .scalePoint()
+        .domain(chartData.map((d) => d.name))
+        .range([0 + padding, width - padding]);
+      console.log('Start - End', xScale('Car'), xScale('Cinema'));
+
+      const yScale = d3
+        .scaleLinear()
+        .domain([
+          0,
+          d3.max(chartData, function (d) {
+            return d.value;
+          }),
+        ])
+        .range([height - padding, 0 + padding]);
+
+      console.log('Start - End', yScale(0), yScale(10));
+
+      const line = d3
+        .line()
+        .x((d) => xScale(d.name))
+        .y((d) => yScale(d.value))
+        .curve(d3.curveMonotoneX);
+
+      console.log('chart draw commands', line(chartData));
+
+      d3.select(svgRef.current)
+        .select('path')
+        .attr('d', (value) => line(chartData))
+        .attr('fill', 'none')
+        .attr('stroke', 'white');
+    };
+  }, [chartData]);
 
   return (
     <div className='App'>
